@@ -1,0 +1,3 @@
+C:/Users/eyal/CLionProjects/kmeans/cmake-build-debug/CMakeFiles/K_MEANS.dir
+C:/Users/eyal/CLionProjects/kmeans/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/eyal/CLionProjects/kmeans/cmake-build-debug/CMakeFiles/rebuild_cache.dir
