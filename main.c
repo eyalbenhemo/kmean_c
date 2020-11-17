@@ -34,8 +34,6 @@ double **calc_centroids(double **observations, const int *clusterAllocations) {
         }
     }
 
-    free(&i);
-    free(&j);
     free(clustersLengths);
     return res;
 }
