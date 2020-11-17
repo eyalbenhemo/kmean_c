@@ -74,7 +74,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/eyal/CLionProjects/kmeans/main.c">
+		<Unit filename="C:/Users/eyal/CLionProjects/kmeans/kmeans.c">
 			<Option target="kmeans"/>
 		</Unit>
 		<Unit filename="C:/Users/eyal/CLionProjects/kmeans/CMakeLists.txt">

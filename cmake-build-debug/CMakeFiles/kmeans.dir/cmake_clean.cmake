@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/kmeans.dir/main.c.obj"
+  "CMakeFiles/kmeans.dir/kmeans.c.obj"
   "kmeans.exe"
   "kmeans.exe.manifest"
   "kmeans.pdb"

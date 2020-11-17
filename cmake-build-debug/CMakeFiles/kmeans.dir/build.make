@@ -76,27 +76,27 @@ include CMakeFiles/kmeans.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kmeans.dir/flags.make
 
-CMakeFiles/kmeans.dir/main.c.obj: CMakeFiles/kmeans.dir/flags.make
-CMakeFiles/kmeans.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/kmeans.dir/main.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\kmeans.dir\main.c.obj   -c C:\Users\eyal\CLionProjects\kmeans\main.c
+CMakeFiles/kmeans.dir/kmeans.c.obj: CMakeFiles/kmeans.dir/flags.make
+CMakeFiles/kmeans.dir/kmeans.c.obj: ../kmeans.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/kmeans.dir/kmeans.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\kmeans.dir\kmeans.c.obj   -c C:\Users\eyal\CLionProjects\kmeans\kmeans.c
 
-CMakeFiles/kmeans.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kmeans.dir/main.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eyal\CLionProjects\kmeans\main.c > CMakeFiles\kmeans.dir\main.c.i
+CMakeFiles/kmeans.dir/kmeans.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kmeans.dir/kmeans.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eyal\CLionProjects\kmeans\kmeans.c > CMakeFiles\kmeans.dir\kmeans.c.i
 
-CMakeFiles/kmeans.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kmeans.dir/main.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eyal\CLionProjects\kmeans\main.c -o CMakeFiles\kmeans.dir\main.c.s
+CMakeFiles/kmeans.dir/kmeans.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kmeans.dir/kmeans.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eyal\CLionProjects\kmeans\kmeans.c -o CMakeFiles\kmeans.dir\kmeans.c.s
 
 # Object files for target kmeans
 kmeans_OBJECTS = \
-"CMakeFiles/kmeans.dir/main.c.obj"
+"CMakeFiles/kmeans.dir/kmeans.c.obj"
 
 # External object files for target kmeans
 kmeans_EXTERNAL_OBJECTS =
 
-kmeans.exe: CMakeFiles/kmeans.dir/main.c.obj
+kmeans.exe: CMakeFiles/kmeans.dir/kmeans.c.obj
 kmeans.exe: CMakeFiles/kmeans.dir/build.make
 kmeans.exe: CMakeFiles/kmeans.dir/linklibs.rsp
 kmeans.exe: CMakeFiles/kmeans.dir/objects1.rsp

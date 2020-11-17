@@ -72,7 +72,7 @@ CMAKE_BINARY_DIR = C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/K_MEANS.dir/all
+all: CMakeFiles/kmeans.dir/all
 
 .PHONY : all
 
@@ -82,36 +82,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/K_MEANS.dir/clean
+clean: CMakeFiles/kmeans.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/K_MEANS.dir
+# Target rules for target CMakeFiles/kmeans.dir
 
 # All Build rule for target.
-CMakeFiles/K_MEANS.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target K_MEANS"
-.PHONY : CMakeFiles/K_MEANS.dir/all
+CMakeFiles/kmeans.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target kmeans"
+.PHONY : CMakeFiles/kmeans.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/K_MEANS.dir/rule: cmake_check_build_system
+CMakeFiles/kmeans.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/K_MEANS.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/kmeans.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eyal\CLionProjects\kmeans\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/K_MEANS.dir/rule
+.PHONY : CMakeFiles/kmeans.dir/rule
 
 # Convenience name for target.
-K_MEANS: CMakeFiles/K_MEANS.dir/rule
+kmeans: CMakeFiles/kmeans.dir/rule
 
-.PHONY : K_MEANS
+.PHONY : kmeans
 
 # clean rule for target.
-CMakeFiles/K_MEANS.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/clean
-.PHONY : CMakeFiles/K_MEANS.dir/clean
+CMakeFiles/kmeans.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/clean
+.PHONY : CMakeFiles/kmeans.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

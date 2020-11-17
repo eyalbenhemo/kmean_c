@@ -130,44 +130,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named K_MEANS
+# Target rules for targets named kmeans
 
 # Build rule for target.
-K_MEANS: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 K_MEANS
-.PHONY : K_MEANS
+kmeans: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 kmeans
+.PHONY : kmeans
 
 # fast build rule for target.
-K_MEANS/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/build
-.PHONY : K_MEANS/fast
+kmeans/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/build
+.PHONY : kmeans/fast
 
-main.obj: main.c.obj
+kmeans.obj: kmeans.c.obj
 
-.PHONY : main.obj
+.PHONY : kmeans.obj
 
 # target to build an object file
-main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/main.c.obj
-.PHONY : main.c.obj
+kmeans.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/kmeans.c.obj
+.PHONY : kmeans.c.obj
 
-main.i: main.c.i
+kmeans.i: kmeans.c.i
 
-.PHONY : main.i
+.PHONY : kmeans.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/main.c.i
-.PHONY : main.c.i
+kmeans.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/kmeans.c.i
+.PHONY : kmeans.c.i
 
-main.s: main.c.s
+kmeans.s: kmeans.c.s
 
-.PHONY : main.s
+.PHONY : kmeans.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\K_MEANS.dir\build.make CMakeFiles/K_MEANS.dir/main.c.s
-.PHONY : main.c.s
+kmeans.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\kmeans.dir\build.make CMakeFiles/kmeans.dir/kmeans.c.s
+.PHONY : kmeans.c.s
 
 # Help Target
 help:
@@ -177,10 +177,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... K_MEANS
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... kmeans
+	@echo ... kmeans.obj
+	@echo ... kmeans.i
+	@echo ... kmeans.s
 .PHONY : help
 
 
