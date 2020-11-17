@@ -3,15 +3,15 @@
 #include <assert.h>
 
 /*Get array of pointer to observations and calc their avg*/
-float* calc_centroid(float **observations, const int len, const int d) {
-    float* centroid = calloc(d, sizeof(float));
+float *calc_centroid(float **observations, const int len, const int d) {
+    float *centroid = calloc(d, sizeof(float));
     int i = 0;
     int j = 0;
-    for(; j< d; j++){
+    for (; j < d; j++) {
         centroid[j] = 0;
     }
     for (; i < len; i++) {
-        j=0;
+        j = 0;
         for (; j < d; j++) {
             centroid[j] += observations[i][j];
         }
@@ -51,16 +51,16 @@ int find_closest_centroid(const float a[], float **centroids, const int K, const
     return min_cent;
 }
 
-/*Get 2 pointers to centroids and check if they equal*/
+/*Get 2 pointers to centroids and check if they equal*//*
 int check_if_equals(float new_centroids[], float centroids[]){
 
 }
-/*Get centroids, MAX_ITER and observations
+*//*Get centroids, MAX_ITER and observations
  * Calc centroids while num of iter <= MAX_ITER and last(centroids) != centroids
- * return centroids*/
+ * return centroids*//*
 float** approximation_loop(float **centroids, int MAX_ITER ,float **observations){
 
-}
+}*/
 
 int main(int argc, char *argv[]) {
 
@@ -69,15 +69,28 @@ int main(int argc, char *argv[]) {
     const int N = atoi(argv[2]);
     const int d = atoi(argv[3]);
     const int MAX_ITER = atoi(argv[4]);
-
-    /*Define variables*/
-    float **centroids = calloc(K, sizeof(float*));
-    float **observations = calloc(N, sizeof(float*));
+    char c;
+    int i = 0;
+    double **centroids, **observations;
 
     /*Assertions*/
-    assert(argc == 5);
-    assert(K > 0 && N > 0 && d > 0 && MAX_ITER > 0);
-    assert(K < N);
+    assert(argc == 5 && "Need to get 4 args");
+    assert(K > 0 && N > 0 && d > 0 && MAX_ITER > 0 && "Args should be positive");
+    assert(K < N && "K need to be smaller than N");
+
+    /*Define variables*/
+    centroids = calloc(K, sizeof(double *));
+    observations = calloc(N, sizeof(double *));
+    for (; i < N; i++) {
+        observations[i] = calloc(d, sizeof(double));
+    }
+    for (i = 0; i < K; i++) {
+        centroids[i] = observations[i];
+    }
+
+    /*Read input*/
+    i = 0;
+    while (scanf("%lf%c", &observations[i / d][i % d], &c) == 2) { i++; }
 
     return 0;
 }
