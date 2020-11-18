@@ -5,38 +5,35 @@
 int K, N, d, MAX_ITER;
 
 /*Get array of pointer to observations and calc their avg*/
-double **calc_centroids(double **observations, const int *clusterAllocations) {
+double **
+calc_centroids(double **observations, const int *clusterAllocations, double **new_centroids, int *clustersLengths) {
     int i, j; /* looping variables */
-    int *clustersLengths = calloc(K, sizeof(int));
-    double **res = calloc(K, sizeof(double *)); /* new centroids to be returned */
 
     for (i = 0; i < K; i++) { /* initialize clusters lengths and values to 0 */
         clustersLengths[i] = 0;
-        res[i] = calloc(d, sizeof(double));
         for (j = 0; j < d; j++) {
-            res[i][j] = 0;
+            new_centroids[i][j] = 0;
         }
     }
 
     for (i = 0; i < N; i++) { /* add all the values of the of the observations to the relevant centroid */
         clustersLengths[clusterAllocations[i]]++; /* update number of observations in vector */
         for (j = 0; j < d; j++) {
-            res[clusterAllocations[i]][j] += observations[i][j]; /* add observation to vector */
+            new_centroids[clusterAllocations[i]][j] += observations[i][j]; /* add observation to vector */
         }
     }
 
     for (i = 0; i < K; i++) { /* Update the means to all centroids */
         for (j = 0; j < d; j++) {
             if (!clustersLengths[i]) {
-                res[i][j] /= clustersLengths[i];
+                new_centroids[i][j] /= clustersLengths[i];
             } else {
-                res[i][j] = 0;
+                new_centroids[i][j] = 0;
             }
         }
     }
 
-    free(clustersLengths);
-    return res;
+    return new_centroids;
 }
 
 /*Get 2 observations and calc their distance*/
@@ -92,18 +89,37 @@ int check_if_equals(double **new_centroids, double **centroids) {
 double **approximation_loop(double **centroids, double **observations) {
     int i, j;
     int *clusterAllocations = calloc(N, sizeof(int)); /* create an array of where every observation in mapped to*/
-    double **newCentroids;
+    double **newCentroids = calloc(K, sizeof(double *)); /* new centroids to be returned */
+    double **temp;
+    int *clustersLengths = calloc(K, sizeof(int));
+    for (i = 0; i < K; i++) { /* initialize clusters lengths and values to 0 */
+        clustersLengths[i] = 0;
+        newCentroids[i] = calloc(d, sizeof(double));
+        for (j = 0; j < d; j++) {
+            newCentroids[i][j] = 0;
+        }
+    }
 
     for (j = 0; j < MAX_ITER; j++) {
         for (i = 0; i < N; i++) {
             clusterAllocations[i] = find_closest_centroid(observations[i], centroids);
         }
-        newCentroids = calc_centroids(observations, clusterAllocations);
+        calc_centroids(observations, clusterAllocations, newCentroids, clustersLengths);
         if (check_if_equals(centroids, newCentroids)) {
             break;
         }
-        free(centroids);
-        centroids = newCentroids;
+
+        if (!j) {
+            centroids = newCentroids;
+            newCentroids = calloc(K, sizeof(double *));
+            for (i = 0; i < K; i++) {
+                newCentroids[i] = calloc(d, sizeof(double));
+            }
+        } else{
+            temp = centroids;
+            centroids = newCentroids;
+            newCentroids =temp;
+        }
     }
 
     free(newCentroids);
