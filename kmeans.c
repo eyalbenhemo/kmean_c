@@ -86,12 +86,13 @@ int check_if_equals(double **new_centroids, double **centroids) {
 /*Get centroids, MAX_ITER and observations
  * Calc centroids while num of iter <= MAX_ITER and last(centroids) != centroids
  * return centroids*/
-double **approximation_loop(double **centroids, double **observations) {
+double **approximation_loop(double **observations) {
     int i, j;
+    double  **centroids = observations;
     int *clusterAllocations = calloc(N, sizeof(int)); /* create an array of where every observation in mapped to*/
     double **newCentroids = calloc(K, sizeof(double *)); /* new centroids to be returned */
-    double **temp;
-    int *clustersLengths = calloc(K, sizeof(int));
+    int *clustersLengths = calloc(K, sizeof(int)); /**/
+    double **temp; /*swap variable*/
     for (i = 0; i < K; i++) { /* initialize clusters lengths and values to 0 */
         clustersLengths[i] = 0;
         newCentroids[i] = calloc(d, sizeof(double));
@@ -115,10 +116,10 @@ double **approximation_loop(double **centroids, double **observations) {
             for (i = 0; i < K; i++) {
                 newCentroids[i] = calloc(d, sizeof(double));
             }
-        } else{
+        } else {
             temp = centroids;
             centroids = newCentroids;
-            newCentroids =temp;
+            newCentroids = temp;
         }
     }
 
@@ -148,14 +149,13 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < N; i++) {
         observations[i] = calloc(d, sizeof(double));
     }
-    centroids = observations;
 
     /*Read input*/
     i = 0;
     while (scanf("%lf%c", &observations[i / d][i % d], &c) == 2) { i++; }
 
     /*Calc centroids*/
-    centroids = approximation_loop(centroids, observations);
+    centroids = approximation_loop(observations);
 
     /*Print centroids*/
     for (i = 0; i < K; i++) {
