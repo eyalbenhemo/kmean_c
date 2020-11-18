@@ -25,7 +25,7 @@ calc_centroids(double **observations, const int *clusterAllocations, double **ne
 
     for (i = 0; i < K; i++) { /* Update the means to all centroids */
         for (j = 0; j < d; j++) {
-            if (!clustersLengths[i]) {
+            if (clustersLengths[i]) {
                 new_centroids[i][j] /= clustersLengths[i];
             } else {
                 new_centroids[i][j] = 0;
@@ -160,7 +160,11 @@ int main(int argc, char *argv[]) {
     /*Print centroids*/
     for (i = 0; i < K; i++) {
         for (j = 0; j < d; j++) {
-            printf("%.2f,", centroids[i][j]);
+            if(j==d-1){
+                printf("%.2f", centroids[i][j]);
+            } else{
+                printf("%.2f,", centroids[i][j]);
+            }
         }
         if (i < K - 1) {
             printf("\n");
