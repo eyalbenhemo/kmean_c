@@ -88,9 +88,9 @@ int check_if_equals(double **new_centroids, double **centroids) {
  * return centroids*/
 double **approximation_loop(double **observations) {
     int i, j;
-    double  **centroids = observations;
-    int *clusterAllocations = calloc(N, sizeof(int)); /* create an array of where every observation in mapped to*/
+    double **centroids = observations;
     double **newCentroids = calloc(K, sizeof(double *)); /* new centroids to be returned */
+    int *clusterAllocations = calloc(N, sizeof(int)); /* create an array of where every observation in mapped to*/
     int *clustersLengths = calloc(K, sizeof(int)); /**/
     double **temp; /*swap variable*/
     for (i = 0; i < K; i++) { /* initialize clusters lengths and values to 0 */
@@ -123,8 +123,14 @@ double **approximation_loop(double **observations) {
         }
     }
 
-    free(newCentroids);
     free(clusterAllocations);
+    free(clustersLengths);
+    if (newCentroids != centroids) {
+        for (i = 0; i < K; i++) {
+            free(newCentroids[i]);
+        }
+        free(newCentroids);
+    }
     return centroids;
 }
 
@@ -160,9 +166,9 @@ int main(int argc, char *argv[]) {
     /*Print centroids*/
     for (i = 0; i < K; i++) {
         for (j = 0; j < d; j++) {
-            if(j==d-1){
+            if (j == d - 1) {
                 printf("%.2f", centroids[i][j]);
-            } else{
+            } else {
                 printf("%.2f,", centroids[i][j]);
             }
         }
@@ -170,6 +176,11 @@ int main(int argc, char *argv[]) {
             printf("\n");
         }
     }
+
+    for (i = 0; i < N; i++) {
+        free(observations[i]);
+    }
+    free(observations);
 
     return 0;
 }
