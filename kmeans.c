@@ -123,14 +123,14 @@ double **approximation_loop(double **observations) {
         }
     }
 
-    free(clusterAllocations);
-    free(clustersLengths);
     if (newCentroids != centroids) {
         for (i = 0; i < K; i++) {
             free(newCentroids[i]);
         }
         free(newCentroids);
     }
+    free(clustersLengths);
+    free(clusterAllocations);
     return centroids;
 }
 
