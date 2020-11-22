@@ -89,16 +89,15 @@ int check_if_equals(double **new_centroids, double **centroids) {
 double **approximation_loop(double **observations) {
     int i, j;
     double **centroids = observations;
-    double **newCentroids = calloc(K, sizeof(double *)); /* new centroids to be returned */
-    int *clusterAllocations = calloc(N, sizeof(int)); /* create an array of where every observation in mapped to*/
-    int *clustersLengths = calloc(K, sizeof(int)); /**/
+    double **newCentroids = malloc(K * sizeof(double *)); /* new centroids to be returned */
+    int *clusterAllocations = malloc(N * sizeof(int)); /* create an array of where every observation in mapped to*/
+    int *clustersLengths = calloc(K, sizeof(int)); /*create array of how many observations go to each centroid*/
     double **temp; /*swap variable*/
+    assert(newCentroids != NULL && clusterAllocations != NULL && clustersLengths != NULL && "Allocation failed");
+
     for (i = 0; i < K; i++) { /* initialize clusters lengths and values to 0 */
-        clustersLengths[i] = 0;
         newCentroids[i] = calloc(d, sizeof(double));
-        for (j = 0; j < d; j++) {
-            newCentroids[i][j] = 0;
-        }
+        assert(newCentroids[i] != NULL && "Allocation failed");
     }
 
     for (j = 0; j < MAX_ITER; j++) {
@@ -112,9 +111,11 @@ double **approximation_loop(double **observations) {
 
         if (!j) {
             centroids = newCentroids;
-            newCentroids = calloc(K, sizeof(double *));
+            newCentroids = malloc(K * sizeof(double *));
+            assert(newCentroids != NULL && "Allocation failed");
             for (i = 0; i < K; i++) {
                 newCentroids[i] = calloc(d, sizeof(double));
+                assert(newCentroids[i] != NULL && "Allocation failed");
             }
         } else {
             temp = centroids;
@@ -151,9 +152,11 @@ int main(int argc, char *argv[]) {
     assert(K < N && "K need to be smaller than N");
 
     /*Define variables*/
-    observations = calloc(N, sizeof(double *));
+    observations = malloc(N * sizeof(double *));
+    assert(observations != NULL && "Allocation failed");
     for (i = 0; i < N; i++) {
-        observations[i] = calloc(d, sizeof(double));
+        observations[i] = malloc(d * sizeof(double));
+        assert(observations[i] != NULL && "Allocation failed");
     }
 
     /*Read input*/
