@@ -140,7 +140,10 @@ int main(int argc, char *argv[]) {
     int i, j;
     double **centroids, **observations;
 
-    assert(argc == 5 && "Need to get 4 args");
+    if (argc != 5) {
+        printf("Need to get 4 args");
+        exit(0);
+    }
 
     /*Parse arguments*/
     K = atoi(argv[1]);
@@ -149,8 +152,14 @@ int main(int argc, char *argv[]) {
     MAX_ITER = atoi(argv[4]);
 
     /*Assertions*/
-    assert(K > 0 && N > 0 && d > 0 && MAX_ITER > 0 && "Args should be positive");
-    assert(K < N && "K need to be smaller than N");
+    if (!(K > 0 && N > 0 && d > 0 && MAX_ITER > 0)) {
+        printf("Args should be positive");
+        exit(0);
+    }
+    if (K >= N) {
+        printf("K need to be smaller than N");
+        exit(0);
+    }
 
     /*Define variables*/
     observations = malloc(N * sizeof(double *));
