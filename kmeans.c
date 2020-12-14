@@ -70,10 +70,10 @@ int find_closest_centroid(const double a[], double **centroids) {
 
 /*Get 2 array of centroids and check if they equal*/
 int check_if_equals(double **new_centroids, double **centroids) {
-    int i, j = 0;
+    int i, j;
 
     for (i = 0; i < K; i++) {
-        for (; j <= d; j++) {
+        for (j = 0; j <= d; j++) {
             if (centroids[i][j] != new_centroids[i][j]) {
                 return 0;
             }
